@@ -756,7 +756,7 @@ table.dt tr:hover .row-acts{opacity:1}
     <div class="modal-body">
       <div>
         <label class="form-label">关键词</label>
-        <input id="patInput" class="form-input" placeholder="例：iTunes Store · 购买自 · 试听版本">
+        <input id="patInput" class="form-input" placeholder="购买自 · 试听版本">
       </div>
       <div class="form-row">
         <label class="toggle-wrap"><input type="checkbox" id="patCase"> 区分大小写</label>
@@ -968,8 +968,6 @@ function renderTable(files) {
       <td class="col-path"><div class="cell-path" title="${rel}">${rel}</div></td>
       <td class="col-act"><div class="row-acts">
         <button class="row-btn open" title="打开所在文件夹" onclick="doOpenFolder('${id}')">📂</button>
-        <button class="row-btn edit" title="编辑备注"       onclick="showEditModal('${id}')">✏</button>
-        <button class="row-btn del"  title="清空此备注"     onclick="doQuickClear('${id}')">✕</button>
       </div></td>
     </tr>`;
   }).join('');
