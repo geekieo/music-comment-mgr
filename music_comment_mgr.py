@@ -497,7 +497,7 @@ table.dt tr.selected td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 .col-ext{width:72px}
 .col-comment{width:38%}
 .col-path{width:auto}
-.col-act{width:96px;text-align:right}
+.col-act{width:44px;text-align:right}
 
 /* Cell content */
 .cell-name{font-family:var(--mono);font-size:12.5px;color:var(--text);
@@ -517,8 +517,6 @@ table.dt tr:hover .row-acts{opacity:1}
   border-radius:4px;font-size:13px;color:var(--text-muted);transition:.12s;line-height:1}
 .row-btn:hover{background:var(--surface2)}
 .row-btn.open:hover{color:var(--accent)}
-.row-btn.edit:hover{color:var(--warning)}
-.row-btn.del:hover{color:var(--danger);background:var(--danger-glow)}
 
 /* Edit textarea */
 .edit-textarea{width:100%;background:var(--surface);border:1px solid var(--border);
@@ -1068,16 +1066,6 @@ function clearExclude() {
   inp.classList.remove('active');
   document.getElementById('excludeClear').classList.remove('show');
   S.exclude = ''; S.page = 1; fetchFiles();
-}
-
-// ── Quick clear (row button) ──────────────────────────────────────────────
-function doQuickClear(id) {
-  const file = FILE_MAP.get(id);
-  if (!file) return;
-  showConfirm(`确认清空 <strong>${escHtml(file.name)}</strong> 的备注？`, async () => {
-    const d = await fetchJSON('/api/clear', {method:'POST', body:{ids:[id]}});
-    onClearResult(d, '已清空 1 条备注');
-  });
 }
 
 // ── Open folder ───────────────────────────────────────────────────────────
